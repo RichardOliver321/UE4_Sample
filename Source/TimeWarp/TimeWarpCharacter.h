@@ -21,13 +21,14 @@ class ATimeWarpCharacter : public ACharacter
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	class USkeletalMeshComponent* FP_Gun;
 
-	/** Location on gun mesh where projectiles should spawn. */
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-	class USceneComponent* FP_MuzzleLocation;
-
 	/** First person camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FirstPersonCameraComponent;
+
+
+	/** Projectile class to spawn */
+	UPROPERTY(EditDefaultsOnly, Category = Projectile)
+	TSubclassOf<class ATimeWarpProjectile> ProjectileClass;
 
 public:
 	ATimeWarpCharacter();
@@ -40,6 +41,9 @@ private:
 
 public:
 
+	/** Location on gun mesh where projectiles should spawn. */
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Mesh)
+		class USceneComponent* FP_MuzzleLocation;
 
 	UPROPERTY(EditAnywhere, Category = GameSettings)
 	float slowValue = 0.3f;
