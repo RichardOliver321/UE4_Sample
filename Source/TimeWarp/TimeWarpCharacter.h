@@ -35,7 +35,17 @@ public:
 protected:
 	virtual void BeginPlay();
 
+private:
+	void SlowTime();
+
 public:
+
+
+	UPROPERTY(EditAnywhere, Category = GameSettings)
+	float slowValue = 0.3f;
+
+	virtual void Tick(float DeltaTime) override;
+
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseTurnRate;

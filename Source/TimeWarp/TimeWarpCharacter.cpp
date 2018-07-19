@@ -71,8 +71,18 @@ void ATimeWarpCharacter::BeginPlay()
 	Mesh1P->SetHiddenInGame(false, true);
 }
 
-//////////////////////////////////////////////////////////////////////////
-// Input
+void ATimeWarpCharacter::Tick(float DeltaTime) {
+	SlowTime();
+}
+
+void ATimeWarpCharacter::SlowTime() {
+	if (GetVelocity().X != 0.0 || GetVelocity().Y != 0.0) {
+		UGameplayStatics::SetGlobalTimeDilation(GetWorld(), 1);
+	}
+	else {
+		UGameplayStatics::SetGlobalTimeDilation(GetWorld(), slowValue);
+	}
+}
 
 void ATimeWarpCharacter::SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent)
 {
