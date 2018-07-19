@@ -79,3 +79,6 @@ DerivedDataCache/*
 #Ignore Starter Content
 Content/StarterContent
 
+#Ignore Animation Starter Pack
+Content/AnimStarterPack
+
