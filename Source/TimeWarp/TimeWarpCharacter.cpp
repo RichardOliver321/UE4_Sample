@@ -71,6 +71,8 @@ void ATimeWarpCharacter::BeginPlay()
 	Mesh1P->SetHiddenInGame(false, true);
 }
 
+
+
 void ATimeWarpCharacter::Tick(float DeltaTime) {
 	SlowTime();
 }
